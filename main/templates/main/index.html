@@ -1,0 +1,267 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}
+  Index
+{% endblock title %}
+
+{% block content %}
+              <!-- banner -->
+              <section class="banner_main">
+               <div class="container">
+                  <div class="row">
+                     <div class="col-md-10 offset-md-1">
+                        <div class="text-img">
+                           <figure><img src="{% static 'images/box_img.png' %}" alt="#"/></figure>
+                        </div>
+                     </div>
+                     <div class="col-md-12">
+                        <div class="text-bg">
+                           <h1>Spent the best time with best wine</h1>
+                           <a href="#">Read More</a>
+                        </div>
+                     </div>
+                     
+                  </div>
+               </div>
+            </section>
+         </div>
+      </header>
+      <!-- end banner -->
+
+
+
+
+
+<!-- store start here-->
+<div class="store" id="wait">
+   <div class="container">
+      <div class="row">
+         <div class="col-md-12">
+            <div class="titlepage">
+               <h2>Best Wines <span class="red">In Our Store</span></h2>
+               <p>Explore our premium wine collection.<p class="red"> Each bottle tells a story.</p></p>
+            </div>
+         </div>
+      </div>
+
+<!-- Category filters -->
+<div class="text-center my-4">
+   {% for cat in categories %}
+      <a href="?category={{ cat.id }}#wait" class="btn {% if selected_category == cat.id %}btn-danger{% else %}btn-outline-danger{% endif %} m-2">
+         {{ cat.title }}
+      </a>
+   {% endfor %}
+</div>
+
+<!-- Drinks section -->
+      {% for drink in drinks %}
+      <div class="row black_bg d_flex mb-4" style="border-radius: 20px; overflow: hidden;">
+         <div class="col-md-4">
+            <div class="store_box text-center">
+               <figure style="border-radius: 50%; overflow: hidden; width: 200px; height: 200px; margin: auto; object-fit: cover;">
+                  <img src="{{ drink.image.url }}" alt="{{ drink.name }}" style="width: 50%; height: 100%; object-fit: cover;" />
+               </figure>
+            </div>
+         </div>
+         <div class="col-md-8 d-flex flex-column justify-content-center">
+            <div class="store_box">
+               <h3 style="color: rgb(226, 17, 17);">{{ drink.name }}</h3>
+               <p>{{ drink.description }}</p>
+               <strong style="color: rgb(213, 80, 80);">₹{{ drink.price }}</strong>
+            </div>
+         </div>
+      </div>
+      {% endfor %}
+
+      <!-- Pagination -->
+      <div class="text-center">
+         {% for i in num %}
+            <a href="?page={{ i }}{% if selected_category %}&category={{ selected_category }}{% endif %}#wait" class="btn btn-light m-1">{{ i }}</a>
+         {% endfor %}
+      </div>
+   </div>
+</div>
+</div>
+<!-- store end -->
+
+
+<!-- about -->
+      <div class="about" id="about">
+         <div class="container">
+            <div class="row">
+               <div class="col-md-12">
+                  <div class="titlepage">
+                     <h2>About <span class="red"> Store</span></h2>
+                  </div>
+               </div>
+            </div>
+            
+            <div class="row">
+               <div class="col-md-12">
+                  <div class="about_box ">
+                     <p>Fresh Liquorland is one of its kind and is the home for all domestic and imported liquor. We keep most of the Domestic Wines, Beers and Spirits and the best of imported beer, wines, and spirits. Don't get misguided as this is not one premium and expensive store to visit but is the most inexpensive premium store in the nation that will cater needs of all class and pockets. </p>
+                     <a class="read_more" href="{% url 'location' %}">Read more</a>
+                  </div>
+              
+         </div>
+      </div>
+      <br>
+         
+                  
+         </div>
+      </div>
+      <!-- end about -->
+
+
+<!-- Testimonial -->
+          <div id="" class="Testimonial">
+              <div class="container">
+               <div class="row">
+                  <div class="col-md-12">
+                     <div class="titlepage">
+                        <h2>Testimonial</h2>
+                        <span>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem</span>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div id="myCarousel" class="carousel slide Testimonial_carousel" data-ride="carousel">
+        <ol class="carousel-indicators">
+          <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+          <li data-target="#myCarousel" data-slide-to="1"></li>
+          <li data-target="#myCarousel" data-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <div class="container">
+              <div class="carousel-caption">
+                <div class="row d_flex">
+                  <div class="col-md-3">
+                     <div class="Testimonial_box">
+                        <i><img src="{% static 'images/sahil.jpg' %}" class="circle_image" alt="#"/></i>
+                     </div>
+                  </div>
+                  <div class="col-md-9">
+                     <div class="Testimonial_box">
+                        <h4>Sahil Gupta</h4>
+                        <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters,It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters,
+                        </p>
+                     </div>
+                  </div>
+               </div>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="container">
+              <div class="carousel-caption">
+               <div class="row d_flex">
+                  <div class="col-md-3">
+                     <div class="Testimonial_box">
+                        <i><img src="{% static 'images/aarav.jpg' %}" class="circle_image" alt="#"/></i>
+                     </div>
+                  </div>
+                  <div class="col-md-9">
+                     <div class="Testimonial_box">
+                        <h4>Aarav Sah</h4>
+                        <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters,It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters,
+                        </p>
+                     </div>
+                  </div>
+               </div>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="container">
+              <div class="carousel-caption">
+               <div class="row d_flex">
+                  <div class="col-md-3">
+                     <div class="Testimonial_box">
+                        <i><img src="{% static 'images/amit.jpg' %}" class="circle_image" alt="#"/></i>
+                     </div>
+                  </div>
+                  <div class="col-md-9">
+                     <div class="Testimonial_box">
+                        <h4>Amit Tiwari</h4>
+                        <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters,It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters,
+                        </p>
+                     </div>
+                  </div>
+               </div></p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
+         <i class="fa fa-long-arrow-left" aria-hidden="true"></i> 
+        </a>
+        <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
+          <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+        </a>
+      </div>
+
+      </div>
+     
+      <!-- end Testimonial -->
+      <!-- talk -->
+      <div id="talk" class="talk">
+         <div class="container">
+            <div class="row ">
+               <div class="col-md-6 ">
+                  <div class="wines">
+                     <h3>Let’s talk for wines</h3>
+                     <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem  ere, content here', making itIt is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem  ere, content here', making it</p>
+                     <!-- <h3>Free Multipurpose <br>
+                        Responsive Landing Page 2019</h3> -->
+                  </div>
+               </div>
+               <div class="col-md-6 " id="form">
+                  <form class="main_form " method="post" action="{% url 'contact' %}#form" id="contactForm">
+                     {% if messages %}
+                     <div id="ho">
+                       {% for message in messages %}
+                         <div class="alert alert-{{message.tags}} alert-dismissible fade show" role="alert">
+                           <strong>Message :</strong>{{message}}.
+                           <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                         </div>
+                       {% endfor %}
+                     </div>
+                       
+                     {% endif %}
+
+                     {% csrf_token %}
+                     <div class="row">
+                        <div class="col-md-12 ">
+                           <input class="form_contril" placeholder="Name " type="text" name="Name">
+                        </div>
+                        <div class="col-md-12">
+                           <input class="form_contril" placeholder="Phone Number" type="tel" name="Phone_Number" id="phone">
+                           <span style="color: red; display: none;" id="error_msg">Invalid Phone Number</span>
+                        </div>
+                        <div class="col-md-12">
+                           <input class="form_contril" placeholder="Email" type="email" name="Email">
+                        </div>
+                        <div class="col-md-12">
+                           <textarea class="textarea" placeholder="Message" type="text" name="Message" id="message"></textarea>
+                        </div>
+                        <div class="col-sm-12">
+                           <button type="submit" class="send_btn">Send</button>
+                        </div>
+                     </div>
+                  </form>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- end talk -->
+      <script>
+         setTimeout(function(){
+           const ho=document.getElementById('ho');
+           if(ho){
+             ho.style.display='none';
+           }
+         },5000)
+       </script>
+{% endblock content %}

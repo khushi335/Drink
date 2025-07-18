@@ -10,3 +10,5 @@ ENV/
 .vscode/
 staticfiles/
 media/
+__pycache__/
+*.pyc
